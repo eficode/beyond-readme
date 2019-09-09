@@ -1,0 +1,58 @@
+#!/bin/bash
+
+function _available_operations() {
+  cat ${BASH_SOURCE[0]} | sed -n -E 's/function\ ([^_].*)\(.*$/\1/p'
+}
+
+function _red() {
+  local red='\033[0;31m'
+  local no_color='\033[0m'
+  echo -e "${red}${1}${no_color}"
+}
+
+function _rederr() {
+  local red='\033[0;31m'
+  local no_color='\033[0m'
+  echo -e "${red}${1}${no_color}" >&2
+}
+
+function _yellow() {
+  local red='\033[0;33m'
+  local no_color='\033[0m'
+  echo -e "${red}${1}${no_color}"
+}
+
+function read_file() {
+  if [[ "$#" -ne 1 ]]; then
+    _rederr "Error: read_file takes exactly one mandatory positional argument <file_path>"
+    _yellow "Usage: read_file <file_path>" 1>&2
+    exit 1
+  fi
+}
+
+function list_docs() {
+  if [[ "$#" -ne 0 ]]; then
+    _rederr "Error: list_docs takes no positional arguments."
+    _yellow "Usage: list_docs" 1>&2
+    exit 1
+  fi
+  ls -l docs | tail -n +2 | awk '{print $9}'
+}
+
+if [[ "$#" -lt 1 ]]; then
+  _rederr "Error: must specify operation."
+  _yellow "Usage: operations <operation> [args...]" 1>&2
+  echo "Available operations are:" 1>&2
+  _available_operations 1>&2
+  exit 40
+elif [[ "$(type -t $1)" != "function" ]]; then
+  _rederr "Operation '$1' not found."
+  _yellow "Usage: operations <operation> [args...]" 1>&2
+  echo "Available operations are:" 1>&2
+  _available_operations 1>&2
+  exit 40
+fi
+
+operation="$1"
+shift
+eval "$operation $(echo $*)"
