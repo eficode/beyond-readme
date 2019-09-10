@@ -1,6 +1,6 @@
 # Beyond readme
 
-Welcome to your journey beyond traditional README file.
+Welcome to your journey beyond a traditional README file.
 ---
 This project contains example operations that you can run:
 * **list_docs:** lists all files in the docs folder 
