@@ -1,6 +1,7 @@
-# Beyond readme
+# Beyond README
 
 Welcome to your journey beyond a traditional README file.
+
 ---
 This project contains example operations that you can run:
 * **list_docs:** lists all files in the docs folder 
@@ -13,7 +14,8 @@ A README like this is often out of date, especially if the project contains many
 
 These options are not mutually exclusive.
 
-This example demonstrates option 2 with executable `operations` file with `_autocomplete.sh`.
+This example implements executable `operations` with `_autocomplete.sh`.
+
 ---
 
 **Note:** this example only works on [zsh](https://ohmyz.sh/) which is the bestest of shells. So if it doesn't work for you please install zsh and become awesome now.
