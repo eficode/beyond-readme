@@ -28,6 +28,7 @@ function read_file() {
     _yellow "Usage: read_file <file_path>" 1>&2
     exit 1
   fi
+  cat "$1"
 }
 
 function list_docs() {
