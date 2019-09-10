@@ -1,6 +1,20 @@
 # Beyond readme
 
-People like executable READMEs. They shouldn't. They should like short READMEs like this.
+Welcome to your journey beyond traditional README file.
+---
+This project contains example operations that you can run:
+* **list_docs:** lists all files in the docs folder 
+* **read_file:** reads contents of any file in this repository
+* **foo:** prints bar
+
+A README like this is often out of date, especially if the project contains many complicated operations. In this case, operation _foo_ does not exist. Generally, there are 2 approaches to solve README inconsistency:
+1. Generating a README or docs in general
+2. Making a really short README and executable scripts with autocomplete and help
+
+These options are not mutually exclusive.
+
+This example demonstrates option 2 with executable `operations` file with `_autocomplete.sh`.
+---
 
 **Note:** this example only works on [zsh](https://ohmyz.sh/) which is the bestest of shells. So if it doesn't work for you please install zsh and become awesome now.
 
